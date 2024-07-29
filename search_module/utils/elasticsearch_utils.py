@@ -6,7 +6,10 @@ database_name = os.getenv("DATABASE_NAME")
 
 def create_client():
     es_client = Elasticsearch(
-        hosts=[{"host": "localhost", "port": 9200,"scheme": "http"}]
+        hosts=[{"host": "localhost", "port": 9200,"scheme": "http"}],
+        timeout=30,
+        max_retries=10, 
+        retry_on_timeout=True 
     )
     return es_client
     
@@ -55,37 +58,3 @@ def query_index(index, query, fields , page, per_page ):
 
     except Exception as e:
         return {"error":"An unexpected error occurred: " + str(e)},500
-
-
-def index_doc(index_name, data):
-    es_client = create_client()
-    if not es_client.ping():
-        return {"error":"Could not connect to Elasticsearch!"}
-    try:
-        p_key = query_index(database_name+"-"+index_name,"",["primary_key"],1,5)[0]['hits'][0]["primary_key"]
-        resp = es_client.index(index=database_name+"-"+index_name, document=data, id=data[p_key])
-        return resp
-    except Exception as e:
-        return {"error":"An unexpected error occurred: " + str(e)}
-
-def delete_doc(index_name, data):
-    es_client = create_client()
-    if not es_client.ping():
-        return {"error":"Could not connect to Elasticsearch!"}
-    try:
-        p_key = query_index(database_name+"-"+index_name,"",["primary_key"],1,5)[0]['hits'][0]["primary_key"]
-        resp = es_client.delete(index=database_name+"-"+index_name, id=data[p_key])
-        return resp
-    except Exception as e:
-        return {"error":"An unexpected error occurred: " + str(e)}
-
-def update_doc(index_name, data):
-    es_client = create_client()
-    if not es_client.ping():
-        return {"error":"Could not connect to Elasticsearch!"}
-    try:
-        p_key = query_index(database_name+"-"+index_name,"",["primary_key"],1,5)[0]['hits'][0]["primary_key"]
-        resp = es_client.update(index=database_name+"-"+index_name, doc = data, id=data[p_key])
-        return resp
-    except Exception as e:
-        return {"error":"An unexpected error occurred: " + str(e)}
