@@ -6,7 +6,7 @@ database_name = os.getenv("DATABASE_NAME")
 
 def create_client():
     es_client = Elasticsearch(
-        hosts=[{"host": "localhost", "port": 9200,"scheme": "http"}],
+        hosts=[{"host": "elasticsearch", "port": 9200,"scheme": "http"}],
         timeout=30,
         max_retries=10, 
         retry_on_timeout=True 
