@@ -2,6 +2,8 @@ import sys
 from datetime import datetime
 
 from search_module.utils.colors import Colors
+from flask import current_app
+
 
 def print_log(message, status):
     """
@@ -12,6 +14,7 @@ def print_log(message, status):
     status = status.lower()
     date = datetime.now().strftime("%H:%M:%S")
     color = Colors.END
+    print("\n")
     if(status == 's'):
         color = Colors.GREEN
         print(f"{color} [{date}] - SUCCESS : {message}")

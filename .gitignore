@@ -5,3 +5,6 @@ build/
 legacy.py
 .venv
 .env
+*.bak
+*.dat
+*.dir

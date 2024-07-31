@@ -5,7 +5,7 @@ from search_module.utils.database_utils import get_recently_updated_rows
 from search_module.utils.elasticsearch_synchronisation import index_new_rows
 from search_module.utils.logs import print_log
 
-@scheduler.task('interval', id='index_elasticsearch_job',seconds= int(os.getenv("JOB_TIME")))
+@scheduler.task('interval', id='index_elasticsearch_job',seconds= int(os.getenv("TASK_TIME")))
 def index_elasticsearch():
     tables = os.getenv("TABLES").split(",")
     for table in tables:
