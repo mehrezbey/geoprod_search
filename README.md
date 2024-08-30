@@ -33,7 +33,7 @@ Ensure you have the following installed:
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/mehrezbey/geoprod_search
-   cd geoprod-crm-elasticsearch```
+   cd geoprod_search```
 2. **Run the repository:**
    ```bash
    docker-compose up --build```
