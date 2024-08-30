@@ -40,6 +40,13 @@ services:
       - rabbitmq
     networks:
       - es_network
+      
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.15.2
+    ports:
+      - "9200:9200"
+    environment:
+      - discovery.type=single-node
 
 networks:
   es_network:

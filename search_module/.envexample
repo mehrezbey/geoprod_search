@@ -1,0 +1,14 @@
+FLASK_SECRET_KEY=
+SQLALCHEMY_DATABASE_URI = mysql+pymysql://
+DATABASE_NAME = 
+TABLES = table1,table2
+DATABASE_USERNAME = 
+DATABASE_PASSWORD = 
+HOST =
+# FOR APscheduler and Celery 
+DATABASE_INTERVAL = 30 SECOND 
+TASK_TIME = 30  
+# COLUMN_UPDATE_NAME = last_modified_date
+COLUMN_UPDATE_NAME = last_update
+CELERY_BROKER_URL = amqp://mehrez:bey@rabbitmq:5672//
+CELERY_RESULT_BACKEND = rpc://
