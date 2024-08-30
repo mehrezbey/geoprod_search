@@ -56,5 +56,5 @@ Contributions are welcome! If you have suggestions or improvements, feel free to
 Contact
 For questions or further information, please contact:
 
-Your Name: mahrezbey@gmail.com
+email : mahrezbey@gmail.com
 GitHub: mehrezbey
