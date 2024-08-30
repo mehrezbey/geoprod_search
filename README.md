@@ -18,7 +18,8 @@ This project is designed to integrate the Geoprod CRM with Elasticsearch. It all
 - **RabbitMQ**: Message broker used by Celery.
 - **MariaDB**: Relational database for storing data.
 - **APScheduler**: Task scheduler for running periodic jobs.
-- **Docker**: 
+- **Docker**
+- **Swagger**: 
 
 ## Setup
 
@@ -36,6 +37,8 @@ Ensure you have the following installed:
 2. **Run the repository:**
    ```bash
    docker-compose up --build```
+3. **Access this URL to search documents :**
+    http://172.19.0.5:5000
 ## Usage
 Ingesting Tables into Elasticsearch
 Tables to be indexed can be specified in the .env file. The application will dynamically ingest these tables into Elasticsearch, creating indexes as needed.
